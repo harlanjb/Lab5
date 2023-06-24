@@ -7,21 +7,21 @@ void swap(char *x, char *y) {
     *y = temp;
 }
 
-void RecursivePermute(char str[], int k, int length) {
-    if (k == length) {
+void RecursivePermute(char str[], int k, int len) {
+    if (k == len) {
         printf("%s\n", str);
     } else {
-        for (int j = k; j < length; j++) {
+        for (int j = k; j < len; j++) {
             swap(&str[k], &str[j]);
-            RecursivePermute(str, k + 1, length);
+            RecursivePermute(str, k + 1, len);
             swap(&str[k], &str[j]);
         }
     }
 }
 
 void Permute(char str[]) {
-    int length = strlen(str);
-    RecursivePermute(str, 0, length);
+    int len = strlen(str);
+    RecursivePermute(str, 0, len);
 }
 
 int main() {
