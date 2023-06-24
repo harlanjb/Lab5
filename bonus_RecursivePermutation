@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *x, char *y) {
+    char temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void RecursivePermute(char str[], int k, int length) {
+    if (k == length) {
+        printf("%s\n", str);
+    } else {
+        for (int j = k; j < length; j++) {
+            swap(&str[k], &str[j]);
+            RecursivePermute(str, k + 1, length);
+            swap(&str[k], &str[j]);
+        }
+    }
+}
+
+void Permute(char str[]) {
+    int length = strlen(str);
+    RecursivePermute(str, 0, length);
+}
+
+int main() {
+    char str[] = "abc";
+    Permute(str);
+    return 0;
+}
